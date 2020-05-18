@@ -16,8 +16,8 @@ import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
 import CardActions from '@material-ui/core/CardActions'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel'
-import {MdKeyboardArrowDown} from 'react-icons/all'
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import { MdKeyboardArrowDown } from 'react-icons/all'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 /* eslint import/no-webpack-loader-syntax: off */
@@ -25,6 +25,7 @@ import code1 from '!!raw-loader!./examples/example-1.js'
 import code2 from '!!raw-loader!./examples/example-2.js'
 import code3 from '!!raw-loader!./examples/example-3.js'
 import code4 from '!!raw-loader!./examples/example-4.js'
+import Button from '@material-ui/core/Button'
 
 const App = () => {
     return (
@@ -36,6 +37,7 @@ const App = () => {
                         react-async-component-hoc
                     </Typography>
                     <Box ml={3}>Examples</Box>
+                    <Button onClick={github}>GitHub</Button>
                 </Toolbar>
             </AppBar>
             <Box mt={10}>
@@ -57,9 +59,11 @@ const App = () => {
                                         Code
                                     </ExpansionPanelSummary>
                                     <ExpansionPanelDetails>
-                                        <SyntaxHighlighter language={'jsx'}>
-                                            {code1}
-                                        </SyntaxHighlighter>
+                                        <Box width={1} clone>
+                                            <SyntaxHighlighter language={'jsx'}>
+                                                {code1}
+                                            </SyntaxHighlighter>
+                                        </Box>
                                     </ExpansionPanelDetails>
                                 </ExpansionPanel>
                             </Box>
@@ -83,9 +87,13 @@ const App = () => {
                                             Code
                                         </ExpansionPanelSummary>
                                         <ExpansionPanelDetails>
-                                            <SyntaxHighlighter language={'jsx'}>
-                                                {code2}
-                                            </SyntaxHighlighter>
+                                            <Box width={1} clone>
+                                                <SyntaxHighlighter
+                                                    language={'jsx'}
+                                                >
+                                                    {code2}
+                                                </SyntaxHighlighter>
+                                            </Box>
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
                                 </Box>
@@ -112,9 +120,13 @@ const App = () => {
                                             Code
                                         </ExpansionPanelSummary>
                                         <ExpansionPanelDetails>
-                                            <SyntaxHighlighter language={'jsx'}>
-                                                {code3}
-                                            </SyntaxHighlighter>
+                                            <Box width={1} clone>
+                                                <SyntaxHighlighter
+                                                    language={'jsx'}
+                                                >
+                                                    {code3}
+                                                </SyntaxHighlighter>
+                                            </Box>
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
                                 </Box>
@@ -144,9 +156,13 @@ const App = () => {
                                             Code
                                         </ExpansionPanelSummary>
                                         <ExpansionPanelDetails>
-                                            <SyntaxHighlighter language={'jsx'}>
-                                                {code4}
-                                            </SyntaxHighlighter>
+                                            <Box width={1} clone>
+                                                <SyntaxHighlighter
+                                                    language={'jsx'}
+                                                >
+                                                    {code4}
+                                                </SyntaxHighlighter>
+                                            </Box>
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
                                 </Box>
@@ -157,6 +173,10 @@ const App = () => {
             </Box>
         </>
     )
+
+    function github() {
+        window.open('https://github.com/miketalbot/react-async-component-hoc')
+    }
 }
 
 export default App
