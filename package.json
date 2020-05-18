@@ -1,6 +1,6 @@
 {
   "name": "react-async-component-hoc",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Async HOC for react rendering",
   "author": "miketalbot",
   "license": "MIT",

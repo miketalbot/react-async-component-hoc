@@ -1,6 +1,6 @@
 # react-async-component-hoc
 
-> Async HOC for React developers (< 3kb gzip)
+> Async HOC for React developers (3kb gzip)
 
 [![NPM](https://img.shields.io/npm/v/react-async-component-hoc.svg)](https://www.npmjs.com/package/react-async-component-hoc) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -45,6 +45,8 @@ const MyComponent = createAsyncComponent(function MyComponent({address}) {
 ## Examples
 
 4 practical examples can be found in the `example` project. `src/examples`
+
+You can view them running [here](http://bethanycollinge.co.uk/react-async-component-hoc/).
 
 ## Basic Principles
 
