@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './styles.module.css'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export * from './fallback'
+export * from './lru-cache'
+export * from './async-hoc'
+export * from './slot'
