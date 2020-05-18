@@ -10,7 +10,8 @@
     "react-async-component-hoc": "file:..",
     "react-dom": "file:../node_modules/react-dom",
     "react-icons": "^3.10.0",
-    "react-scripts": "file:../node_modules/react-scripts"
+    "react-scripts": "file:../node_modules/react-scripts",
+    "react-syntax-highlighter": "^12.2.1"
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",

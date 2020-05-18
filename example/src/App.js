@@ -14,6 +14,14 @@ import { ExampleComponent4 } from './examples/example-4'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
+import CardActions from '@material-ui/core/CardActions'
+import ExpansionPanel from '@material-ui/core/ExpansionPanel'
+import {MdKeyboardArrowDown} from 'react-icons/all'
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
+/* eslint import/no-webpack-loader-syntax: off */
+import code1 from './examples/example-1.raw.txt'
 
 const App = () => {
     return (
@@ -38,6 +46,18 @@ const App = () => {
                         <CardContent>
                             <ExampleComponent1 lat={-34.397} lon={150.644} />
                         </CardContent>
+                        <CardActions>
+                            <ExpansionPanel>
+                                <ExpansionPanelSummary expandIcon={<MdKeyboardArrowDown/>}>
+                                    Code
+                                </ExpansionPanelSummary>
+                                <ExpansionPanelDetails>
+                                    <SyntaxHighlighter language={"jsx"}>
+                                        {code1}
+                                    </SyntaxHighlighter>
+                                </ExpansionPanelDetails>
+                            </ExpansionPanel>
+                        </CardActions>
                     </Card>
                     <Box mt={2}>
                         <Card>
