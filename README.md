@@ -1,8 +1,10 @@
 # react-async-component-hoc
 
-> Async HOC for React developers
+> Async HOC for React developers (< 3kb gzip)
 
 [![NPM](https://img.shields.io/npm/v/react-async-component-hoc.svg)](https://www.npmjs.com/package/react-async-component-hoc) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+
 
 This component is designed to make writing components that require complex async calls and
 promise resolution obvious and easy to understand. It makes writing async components feel
@@ -281,11 +283,7 @@ passed in the props.
              await new Promise((resolve) => setTimeout(resolve, 1000))
              for (let i = 0; i < 101; i++) {
                  await new Promise((resolve) => setTimeout(resolve, 50))
-                 resolve(
-                     <div
-
-                         style={{width: '100%', background: '#888'}}
-                     >
+                 resolve(<div style={{width: '100%', background: '#888'}}>
                          <div
                              style={{
                                  width: `${i * 1}%`,
