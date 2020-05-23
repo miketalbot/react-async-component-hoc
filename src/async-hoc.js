@@ -15,7 +15,7 @@ export function useDynamicState(state) {
     const [value, set] = useState(state)
     currentSet.current = set
     currentValue.current = value
-    return [value, (v) => currentSet.current(v), ()=>currentValue.current]
+    return [value, (v) => currentSet.current(v), () => currentValue.current]
 }
 
 export function createAsyncComponent(Template, fn) {
@@ -26,7 +26,7 @@ export function createAsyncComponent(Template, fn) {
     let keyFn
     let refreshFn = () => 'standard'
     let result = function Component(props) {
-        let {renderKey} = props
+        let { renderKey } = props
         const self = this
         const each = useRef()
         const fallback = useContext(fallbackContext)
@@ -68,11 +68,13 @@ export function createAsyncComponent(Template, fn) {
                     })
                 basicResult = basicResult()
             }
-            basicResult.then(function (result) {
-                if (result) {
-                    resolve(result)
-                }
-            }).catch(error)
+            basicResult
+                .then(function (result) {
+                    if (result) {
+                        resolve(result)
+                    }
+                })
+                .catch(error)
         }
         if (renderKey) {
             cache.set(renderKey, returnValue)
@@ -81,36 +83,38 @@ export function createAsyncComponent(Template, fn) {
 
         function setResult(id) {
             return function (key, part) {
-
                 if (id !== running.current) {
                     throw new Error('Cancel')
                 }
 
                 if (part) {
-                    setReturnValue(state.current ={ ...state.current, [key]: part })
-
+                    setReturnValue(
+                        (state.current = { ...state.current, [key]: part })
+                    )
                 } else if (key) {
                     if (typeof key === 'object') {
                         if (key.$$typeof) {
-                            setReturnValue(state.current = { 0: key })
+                            setReturnValue((state.current = { 0: key }))
                         } else {
-                            setReturnValue(state.current = { ...state.current, ...key })
+                            setReturnValue(
+                                (state.current = { ...state.current, ...key })
+                            )
                         }
                     } else {
-                        setReturnValue(state.current  ={ 0: key })
+                        setReturnValue((state.current = { 0: key }))
                     }
                 }
             }
         }
 
         function error(e) {
-            if(e.message !== 'Cancel') {
+            if (e.message !== 'Cancel') {
                 throw e
             }
         }
 
         function restart() {
-            updateSeq(getSeq()+1)
+            updateSeq(getSeq() + 1)
         }
     }
     result.keyFn = function (keyExtraction) {
@@ -122,6 +126,4 @@ export function createAsyncComponent(Template, fn) {
         return result
     }
     return result
-
-
 }
